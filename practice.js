@@ -66,7 +66,7 @@ function third() {
        console.log('f3');
    }
    
-  async function main() {
+  function main() {
      console.log('main');
    
      setTimeout(f1, 5000);
@@ -76,20 +76,20 @@ function third() {
        resolve('I am a Promise, right after f1 and f3! Really?')
      ).then(resolve => console.log(resolve));
 
-     const lol = await "lol"
-    //  console.log(lol)  
+    //  const a = await "all"
+    //  console.log(a)  
 
      new Promise((resolve, reject) =>
        resolve('I am a Promise after Promise!')
      ).then(resolve => console.log(resolve));
    
      f2();
-     return lol
+    //  return a
    }
    
-   const vaa=main();
-   console.log(vaa)
-   console.log("olo")
+   const val=main();
+   console.log(val)
+  //  console.log("olo")
 
 // ===========================
 
