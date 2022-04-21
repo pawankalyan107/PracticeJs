@@ -1,9 +1,9 @@
 //=========Asynchronous Javascript ====================
-function fn() {
+ const fn=()=> {
     console.log('Just a function')
   }
   
-function higherOrderFunction(callback) {
+const  higherOrderFunction=(callback)=> {
     
     callback()
   }
@@ -12,24 +12,26 @@ function higherOrderFunction(callback) {
 
 //===========================================
 
-function first() {
+const first=()=> {
     console.log(1)
   }
   
-function second() {
+const second=()=> {
     setTimeout(() => {
       console.log(2)
     }, 0)
   }
   
-function third() {
+const third=()=> {
     console.log(3)
   }
 
 // first()
 // second()
-// third()
-
+// third()f
+// output: 1
+// 3
+// 2
 //==================================================================
 
 
@@ -51,6 +53,10 @@ function third() {
 
 // first()
 // second(third)
+
+// output: 1
+// 2
+// 3
 
 //===========================================================================
 
@@ -86,10 +92,12 @@ function third() {
      f2();
     //  return a
    }
+
+   main()
    
-   const val=main();
-   console.log(val)
-  //  console.log("olo")
+  //  const val=main();
+  //  console.log(val)
+  // //  console.log("olo")
 
 // ===========================
 
@@ -107,16 +115,45 @@ function pyramid() {
 
 //   pyramid()
 
-//=================================================
-
-
-
-
-
-
-
-
 //====================Async/await, Promises=========================================
+
+let promise1 = new Promise(function(resolve, reject) {
+  resolve('Resolving a fake Promise.');
+});
+
+promise1.then(function(value) {
+  console.log(value);
+})
+
+let promise2 = new Promise(function(resolve, reject) {
+  reject(new Error('Rejecting a fake Promise to handle with .catch().'));
+});
+
+promise2.catch(function(value) {
+  console.error(value);
+});
+
+
+let getUser = new Promise(function(resolve, reject) {
+  const user = { 
+          name: 'Pawan Klayan', 
+          email: 'pawankalyan@email.com', 
+          password: 'pawan.password' 
+   };
+   resolve(user);
+});
+
+getUser
+.then(function(user) {
+   console.log(`Got user ${user.name}`);
+  
+   return user.email;
+})
+.then(function(email) {
+   console.log(`User email is ${email}`);
+});
+
+
 
 async function fetchUserDetails() {
    return {'name': 'Robin', 'likes': ['toys', 'pizzas']};
